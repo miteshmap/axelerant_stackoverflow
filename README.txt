@@ -2,6 +2,8 @@
 ABSTRACT
 ---------------------
 * stackoverflow kind of site For Axelerant test.
+* Responsive with Bootstrap
+* http://dev-axelerant-stackoverflow.pantheon.io/
 
 ABOUT SITE
 ---------------------
