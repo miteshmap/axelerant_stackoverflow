@@ -11,8 +11,9 @@ function template_preprocess_question_row(&$vars) {
   $vars['user'] = user_load($node->uid);
 }
 
-
-
+/**
+ * Preprocess question_list
+ */
 function template_preprocess_question_list(&$vars) {
   $items = $vars['items'];
   $vars['lists'] = array();
@@ -20,7 +21,6 @@ function template_preprocess_question_list(&$vars) {
     $vars['lists'][] = theme('question_row', array('node' => $node));
   }
 }
-
 
 /**
  * Preprocess for question vote up-down.
@@ -44,7 +44,6 @@ function template_preprocess_stackoverflow_vote(&$vars) {
     $vars['class_up'] = 'up-inactive';
     $vars['class_down'] = 'down-inactive';
   }
-
 
   $vars['link_up'] = url('question/'.$node->nid.'/vote/nojs/up');
   $vars['link_down'] = url('question/'.$node->nid.'/vote/nojs/down');

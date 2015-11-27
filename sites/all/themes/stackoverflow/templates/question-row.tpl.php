@@ -3,14 +3,14 @@
     <div class="bs-example col-md-6">
       <ul class="nav nav-pills" role="tablist">
         <li role="presentation">
-          <a href="#">
+          <a href="#" title="<?php print ('Votes');?>">
             <span class="glyphicon glyphicon-thumbs-up visible-xs-inline visible-sm-inline" aria-hidden="true"></span>
             <span class="hidden-sm hidden-xs"><?php print t('Votes'); ?></span>
             <span class="badge"><?php print $votes_count; ?></span>
           </a>
         </li>
         <li role="presentation">
-          <a href="#">
+          <a href="#" title="<?php print ('Answers');?>">
             <span class="glyphicon glyphicon-ok visible-xs-inline visible-sm-inline" aria-hidden="true"></span>
             <span class="hidden-sm hidden-xs"><?php print t('Answers'); ?></span>
             <span class="badge"><?php print $answers_count; ?>
@@ -18,7 +18,7 @@
           </a>
         </li>
         <li role="presentation">
-          <a href="#">
+          <a href="#" title="<?php print ('Views');?>">
             <span class="glyphicon glyphicon-eye-open visible-xs-inline visible-sm-inline" aria-hidden="true"></span>
             <span class="hidden-sm hidden-xs"><?php print t('Views'); ?></span>
             <span class="badge"><?php print $views_count; ?></span>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="summary col-md-6">
-      <h3 class="no-margin" style="margin: 0px !important;"><?php print l($node->title, 'node/'.$node->nid); ?></h3>
+      <h3 class="no-margin" style="margin: 0px !important;"><?php print l($node->title, 'node/' . $node->nid); ?></h3>
       <div class="started pull-right">
         <?php print t('Posted by') .' '. l($user->name, 'user/'.$user->uid); //format_interval(REQUEST_TIME, $node->updated); ?>
       </div>
