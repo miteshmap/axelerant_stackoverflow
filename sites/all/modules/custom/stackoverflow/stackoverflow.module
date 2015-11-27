@@ -30,7 +30,7 @@ function stackoverflow_menu() {
   $items['questions'] = array(
     'title' => 'Question List',
     'description' => 'Question list page',
-    'page callback' => 'stackoverflow_question_list',
+    'page callback' => 'stackoverflow_question_list_callback',
     'access callback' => TRUE,
     'type' => MENU_NORMAL_ITEM,
     'file' => 'includes/stackoverflow.pages.inc',
@@ -57,31 +57,33 @@ function stackoverflow_menu() {
  * Implements hook_theme().
  */
 function stackoverflow_theme() {
-  $base = array(
-    'path' => drupal_get_path('module', 'stackoverflow') . '/theme',
-    'file' => 'theme.inc',
+
+  return array(
+    'question_list' => array(
+      'variables' => array(),
+      'path' => drupal_get_path('module', 'stackoverflow') . '/theme',
+      'file' => 'theme.inc',
+    ),
+    'question_row' => array(
+      'variables' => array('node' => NULL),
+      'template' => 'question-row',
+      'path' => drupal_get_path('module', 'stackoverflow') . '/theme',
+      'file' => 'theme.inc',
+    ),
+    'stackoverflow_vote' => array(
+      'variables' => array('entity' => NULL, 'value' => NULL),
+      'template' => 'stackoverflow-voteupdown',
+      'path' => drupal_get_path('module', 'stackoverflow') . '/theme',
+      'file' => 'theme.inc',
+    )
   );
-
-  $items = array();
-
-  $items['question_list'] = array(
-    'variables' => array('items' => array()),
-    'template' => 'question-list',
-  ) + $base;
-
-  $items['question_row'] = array(
-    'variables' => array('node' => NULL),
-    'template' => 'question-row',
-  ) + $base;
-
-  $items['stackoverflow_vote'] = array(
-    'variables' => array('entity' => NULL, 'value' => NULL),
-    'template' => 'stackoverflow-voteupdown',
-  ) + $base;
-
-
-  return $items;
 }
+
+
+function axelerant_custom_page_callback() {
+  return theme('question_list');
+}
+
 
 /**
  * Implements hook_node_view().

@@ -12,17 +12,6 @@ function template_preprocess_question_row(&$vars) {
 }
 
 /**
- * Preprocess question_list
- */
-function template_preprocess_question_list(&$vars) {
-  $items = $vars['items'];
-  $vars['lists'] = array();
-  foreach($items as $node) {
-    $vars['lists'][] = theme('question_row', array('node' => $node));
-  }
-}
-
-/**
  * Preprocess for question vote up-down.
  */
 function template_preprocess_stackoverflow_vote(&$vars) {

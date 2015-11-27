@@ -26,11 +26,12 @@
         </li>
       </ul>
     </div>
-
     <div class="summary col-md-6">
-      <h3 class="no-margin" style="margin: 0px !important;"><?php print l($node->title, 'node/'.$node->nid); ?></h3>
+      <h3 class="no-margin" style="margin: 0px !important;">
+        <?php print l($node->title, 'node/'. $node->nid); ?>
+      </h3>
       <div class="started pull-right">
-        <?php print t('Posted by') .' '. l($user->name, 'user/'.$user->uid); //format_interval(REQUEST_TIME, $node->updated); ?>
+        <?php print t('Posted by') .' '. l($user->name, 'user/' . $user->uid); //format_interval(REQUEST_TIME, $node->updated); ?>
       </div>
     </div>
   </div>

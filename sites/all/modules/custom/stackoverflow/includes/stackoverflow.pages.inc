@@ -1,10 +1,6 @@
 <?php
 
-/**
- * page callback: List Page.
- */
-function stackoverflow_question_list() {
-
+function stackoverflow_question_list_callback() {
   $query = db_select('node');
   $query->addField('node', 'nid');
   $query->condition('type', 'question');
@@ -13,20 +9,16 @@ function stackoverflow_question_list() {
   $query->addTag('node_access');
   $nids = $query->execute()->fetchCol();
 
-  $build = array();
+  $items = array();
 
   if (!empty($nids)) {
     $nodes = node_load_multiple($nids);
     foreach ($nodes as $node) {
-      $build['node'][$node->nid] = array(
-        '#theme' => 'question_row',
-        '#node' => $node
-      );
+      $items[$node->nid] = theme('question_row', array('node' => $node));
     }
   }
 
-  //return theme('question_list',array('items' => $lists));
-  return $build;
+  return theme('question_list', array('lists' => $items));
 }
 
 /**
