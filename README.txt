@@ -21,6 +21,13 @@ settings
   as you needed.
 
 
+Sources
+---------------------
+- for Vote up / down ajax link
+   https://www.computerminds.co.uk/drupal-code/create-drupal-ajax-link-drupal-7-its-easy
+
+- And for other hooks - drupal api.
+
 Author
 ---------------------
 Mitesh Patel
