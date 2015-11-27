@@ -31,7 +31,7 @@
         <?php print l($node->title, 'node/'. $node->nid); ?>
       </h3>
       <div class="started pull-right">
-        <?php print t('Posted by') .' '. l($user->name, 'user/' . $user->uid); //format_interval(REQUEST_TIME, $node->updated); ?>
+        <?php print t('Posted by') .' '. l($user->name, 'user/' . $user->uid); ?>
       </div>
     </div>
   </div>
